@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 @Entity
 public class Agence  implements Serializable{
 	@Id
@@ -16,8 +17,9 @@ private String libelle;
 @ManyToOne
 private Banque banque;
 @ManyToOne
-private Directeur gerant ;
-
+private Directeur directeur ;
+@OneToMany(mappedBy = "agence")
+private Employe employe;
 public Long getNumAgence() {
 	return numAgence;
 }
@@ -33,6 +35,30 @@ public void setNumAgence(Long numAgence) {
 public void setLibelle(String libelle) {
 	this.libelle = libelle;
 }
+
+    public Banque getBanque() {
+        return banque;
+    }
+
+    public void setBanque(Banque banque) {
+        this.banque = banque;
+    }
+
+    public Directeur getDirecteur() {
+        return directeur;
+    }
+
+    public void setDirecteur(Directeur directeur) {
+        this.directeur = directeur;
+    }
+
+    public Employe getEmploye() {
+        return employe;
+    }
+
+    public void setEmploye(Employe employe) {
+        this.employe = employe;
+    }
 public Agence(Long numAgence, String libelle, Banque banque) {
 	super();
 	this.numAgence = numAgence;

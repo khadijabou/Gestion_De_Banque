@@ -14,9 +14,9 @@ public class Banque  implements Serializable{
 private Long id;
 private String nom;
 private String reference;
-@OneToMany
+@OneToMany(mappedBy = "banque")
 private Client client;
-@OneToMany
+@OneToMany(mappedBy = "banque")
 private Agence agence;
 public Long getId() {
 	return id;

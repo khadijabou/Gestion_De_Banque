@@ -18,15 +18,24 @@ public class Client implements Serializable {
 	private String prenom;
 	private String age;
 	private String email;
-        @OneToMany
+        @OneToMany(mappedBy = "client")
 private Compte compte;
-
+       @OneToMany(mappedBy = "client")
+private Commande commande;
     public Compte getCompte() {
         return compte;
     }
 
     public void setCompte(Compte compte) {
         this.compte = compte;
+    }
+
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
     }
 	
 	public String getCin() {

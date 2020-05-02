@@ -3,22 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.zsmart.GestionDeBanque.dao;
+package com.zsmart.GestionDeBanque.service.facade;
+
 
 import com.zsmart.GestionDeBanque.bean.Commande;
 import java.util.List;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author HP
  */
-@Repository
-public interface CommandeDao extends JpaRepository<Commande , Long>{
+public interface CommandeService {
     public Commande findBySRef(String ref);
 
     public List<Commande> findAll();
     
- 
+   public int save(Commande commande);
 }
